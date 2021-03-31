@@ -1,0 +1,10 @@
+MAS mochileiros_do_jason {
+
+	infrastructure: Centralised
+
+	agents:
+		mochileiro;
+		aventureiro;
+
+	aslSourcePath: "src/asl";
+}
