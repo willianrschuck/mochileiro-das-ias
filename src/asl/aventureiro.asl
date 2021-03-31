@@ -1,5 +1,4 @@
 
-
 itens(
 	[
 		["Item 1", 5.0, 3.0],
@@ -13,12 +12,16 @@ itens(
 	]
 ).
 
+pesoMaximo(8).
 
 !start.
 
-
 +!start : true <- 
    ?itens(X);
-   br.edu.ifsul.ia.organizaAcao(X);
-   .print(X).
-  
+   ?pesoMaximo(P);
+   .print("Olá mochileiro, preciso que organize os itens que levarei em minha mochila na próxima aventura.")
+   .print("Estes são os itens que tenho comigo no momento...")
+   .print(X)
+   .send(mochileiro, tell, selecionarItensMochila(X, P)).
+
++entregarItens(S): true <- .print("Então levarei os itens: ", S).

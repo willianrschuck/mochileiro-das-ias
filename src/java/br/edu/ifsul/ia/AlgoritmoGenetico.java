@@ -54,11 +54,11 @@ public class AlgoritmoGenetico {
 	}
 	
 	public void visualizarGeracao() {
-		Individuo melhor = this.populacao.get(0);
-		System.out.println("Geracao: " + melhor.getGeracao() +
-		                  " Valor:" + melhor.getNotaAvaliacao() +
-		                  " Espaço:" + melhor.getPesos() +
-		                  " Cromossomo: " + melhor.getCromossomos());
+//		Individuo melhor = this.populacao.get(0);
+//		System.out.println("Geracao: " + melhor.getGeracao() +
+//		                  " Valor:" + melhor.getNotaAvaliacao() +
+//		                  " Espaço:" + melhor.getPesos() +
+//		                  " Cromossomo: " + melhor.getCromossomos());
 	}
 	
 	public List<String> resolver(Double taxaMutacao, int numeroGeracoes, List<Double> pesos, List<Double> beneficios, Double limitePeso) {
@@ -66,10 +66,10 @@ public class AlgoritmoGenetico {
 		this.inicializaPopulacao(pesos, beneficios, limitePeso);
 		
 
-		System.out.println("Melhor Solucao: " + melhorIndividuo.getGeracao() +
-                " Valor:" + melhorIndividuo.getNotaAvaliacao() +
-                " Espaço:" + melhorIndividuo.getPesos() +
-                " Cromossomo:" + melhorIndividuo.getCromossomos());	
+//		System.out.println("Melhor Solucao: " + melhorIndividuo.getGeracao() +
+//                " Valor:" + melhorIndividuo.getNotaAvaliacao() +
+//                " Espaço:" + melhorIndividuo.getPesos() +
+//                " Cromossomo:" + melhorIndividuo.getCromossomos());	
 		
 		this.avaliarOrdenarEVisualizarPopulacao();
 		
@@ -98,10 +98,10 @@ public class AlgoritmoGenetico {
 			
 		}
 		
-		System.out.println("Melhor Solucao: " + melhorIndividuo.getGeracao() +
-                " Valor:" + melhorIndividuo.getNotaAvaliacao() +
-                " Espaço:" + melhorIndividuo.getPesos() +
-                " Cromossomo:" + melhorIndividuo.getCromossomos());	
+//		System.out.println("Melhor Solucao: " + melhorIndividuo.getGeracao() +
+//                " Valor:" + melhorIndividuo.getNotaAvaliacao() +
+//                " Espaço:" + melhorIndividuo.getPesos() +
+//                " Cromossomo:" + melhorIndividuo.getCromossomos());	
 		
 		return this.melhorIndividuo.getCromossomos();
 		

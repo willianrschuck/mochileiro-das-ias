@@ -7,6 +7,7 @@ import jason.asSemantics.DefaultInternalAction;
 import jason.asSemantics.TransitionSystem;
 import jason.asSemantics.Unifier;
 import jason.asSyntax.ListTerm;
+import jason.asSyntax.ListTermImpl;
 import jason.asSyntax.NumberTerm;
 import jason.asSyntax.StringTerm;
 import jason.asSyntax.Term;
@@ -19,6 +20,7 @@ public class organizaAcao extends DefaultInternalAction {
 	public Object execute(TransitionSystem ts, Unifier un, Term[] args) throws Exception {
 		
 		ListTerm listaDeTermos = (ListTerm) args[0];
+		double pesoMaximo = ((NumberTerm) args[1]).solve();
 		
 		List<Item> itens = new ArrayList<Item>();
 		
@@ -44,20 +46,21 @@ public class organizaAcao extends DefaultInternalAction {
 			nomes.add(item.getNome());
 		}
 		
-		Double limite = 10.0;
 		int tamanhoPopulacao = 20;
 		Double taxaMutacao = 0.01;
 		int numeroGeracoes = 100;
 		
 		AlgoritmoGenetico a = new AlgoritmoGenetico(tamanhoPopulacao);
-		List<String> resultado = a.resolver(taxaMutacao, numeroGeracoes, pesos, beneficios, limite);
+		List<String> resultado = a.resolver(taxaMutacao, numeroGeracoes, pesos, beneficios, pesoMaximo);
+		ListTerm itensParaLevar = new ListTermImpl();
+		
 		for (int i=0; i < itens.size(); i++) {
 			if (resultado.get(i).equals("1")) {
-				System.out.println("Nome: " + itens.get(i).getNome());
+				itensParaLevar.add(listaDeTermos.get(i));
 			}
 		}
-		
-		return true;
+				
+		return un.unifies(itensParaLevar, args[2]);
 		
 	}
 
