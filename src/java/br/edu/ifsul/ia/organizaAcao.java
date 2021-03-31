@@ -48,7 +48,7 @@ public class organizaAcao extends DefaultInternalAction {
 		
 		int tamanhoPopulacao = 20;
 		Double taxaMutacao = 0.01;
-		int numeroGeracoes = 100;
+		int numeroGeracoes = 1000;
 		
 		AlgoritmoGenetico a = new AlgoritmoGenetico(tamanhoPopulacao);
 		List<String> resultado = a.resolver(taxaMutacao, numeroGeracoes, pesos, beneficios, pesoMaximo);

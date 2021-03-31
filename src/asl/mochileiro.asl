@@ -7,5 +7,5 @@
 +selecionarItensMochila(X, P): true <-
 	.print("Hum...");
 	br.edu.ifsul.ia.organizaAcao(X, P, S);
-	.print("Aqui estão.")
+	.print("Aqui estão os itens mais benéficos que você pode levar nesta mochila.")
 	.send(aventureiro, tell, entregarItens(S)).

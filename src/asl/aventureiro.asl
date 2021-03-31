@@ -1,18 +1,18 @@
 
 itens(
 	[
-		["Item 1", 5.0, 3.0],
-		["Item 2", 4.0, 3.0],
-		["Item 3", 7.0, 2.0],
-		["Item 4", 8.0, 4.0],
-		["Item 5", 4.0, 2.0],
-		["Item 6", 4.0, 3.0],
-		["Item 7", 6.0, 5.0],
-		["Item 8", 8.0, 2.0]
+		["Capacete", 5.0, 3.0],
+		["Orquídea Malevolente", 4.0, 3.0],
+		["Botas Arcanas", 7.0, 2.0],
+		["Rapieira Divina", 8.0, 4.0],
+		["Máscara da Loucura", 4.0, 2.0],
+		["Cota de Lâminas", 4.0, 3.0],
+		["Égide do Imortal", 6.0, 5.0],
+		["Mjollnir", 8.0, 2.0]
 	]
 ).
 
-pesoMaximo(8).
+pesoMaximo(10).
 
 !start.
 
@@ -24,4 +24,4 @@ pesoMaximo(8).
    .print(X)
    .send(mochileiro, tell, selecionarItensMochila(X, P)).
 
-+entregarItens(S): true <- .print("Então levarei os itens: ", S).
++entregarItens(S): true <- .print("Obrigado. Levarei estes itens que me sugeriu ", S).
