@@ -22,7 +22,7 @@ public class exemploAcao extends DefaultInternalAction {
 			mult *= i;
 		}
 		
-		NumberTerm p2x = new NumberTermImpl(42);
+		NumberTerm p2x = new NumberTermImpl(mult);
 		
 		return un.unifies(p2x, args[1]);
 		

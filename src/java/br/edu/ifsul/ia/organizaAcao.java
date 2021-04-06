@@ -11,7 +11,6 @@ import jason.asSyntax.ListTermImpl;
 import jason.asSyntax.NumberTerm;
 import jason.asSyntax.StringTerm;
 import jason.asSyntax.Term;
-import jason.stdlib.foreach;
 
 public class organizaAcao extends DefaultInternalAction {
 	private static final long serialVersionUID = 1L;
@@ -20,30 +19,30 @@ public class organizaAcao extends DefaultInternalAction {
 	public Object execute(TransitionSystem ts, Unifier un, Term[] args) throws Exception {
 		
 		ListTerm listaDeTermos = (ListTerm) args[0];
-		double pesoMaximo = ((NumberTerm) args[1]).solve();
+		double volumeMaximo = ((NumberTerm) args[1]).solve();
 		
-		List<Item> itens = new ArrayList<Item>();
+		List<Produto> produtos = new ArrayList<Produto>();
 		
 		for (Term term : listaDeTermos) {
 			
 			ListTerm subList = (ListTerm) term;
 
 			String nome = ((StringTerm) subList.get(0)).getString();
-			Double peso = ((NumberTerm) subList.get(1)).solve();
-			Double beneficio = ((NumberTerm) subList.get(2)).solve();
+			Double volume = ((NumberTerm) subList.get(1)).solve();
+			Double preco = ((NumberTerm) subList.get(2)).solve();
 			
-			itens.add(new Item(nome, peso, beneficio));
+			produtos.add(new Produto(nome, volume, preco));
 			
 		}
 		
 		List<Double> pesos = new ArrayList<Double>();
-		List<Double> beneficios = new ArrayList<Double>();
+		List<Double> precos = new ArrayList<Double>();
 		List<String> nomes = new ArrayList<String>();
 		
-		for (Item item : itens) {
-			pesos.add(item.getPeso());
-			beneficios.add(item.getBeneficio());
-			nomes.add(item.getNome());
+		for (Produto produto : produtos) {
+			pesos.add(produto.getTamanho());
+			precos.add(produto.getPreco());
+			nomes.add(produto.getNome());
 		}
 		
 		int tamanhoPopulacao = 20;
@@ -51,10 +50,10 @@ public class organizaAcao extends DefaultInternalAction {
 		int numeroGeracoes = 1000;
 		
 		AlgoritmoGenetico a = new AlgoritmoGenetico(tamanhoPopulacao);
-		List<String> resultado = a.resolver(taxaMutacao, numeroGeracoes, pesos, beneficios, pesoMaximo);
+		List<String> resultado = a.resolver(taxaMutacao, numeroGeracoes, pesos, precos, volumeMaximo);
 		ListTerm itensParaLevar = new ListTermImpl();
 		
-		for (int i=0; i < itens.size(); i++) {
+		for (int i=0; i < produtos.size(); i++) {
 			if (resultado.get(i).equals("1")) {
 				itensParaLevar.add(listaDeTermos.get(i));
 			}

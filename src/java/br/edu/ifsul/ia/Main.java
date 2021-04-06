@@ -8,24 +8,24 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		List<Item> itens = new ArrayList<Item>();
-		itens.add(new Item("Item 1", 5.0, 3.0));
-		itens.add(new Item("Item 2", 4.0, 3.0));
-		itens.add(new Item("Item 3", 7.0, 2.0));
-		itens.add(new Item("Item 4", 8.0, 4.0));
-		itens.add(new Item("Item 5", 4.0, 2.0));
-		itens.add(new Item("Item 6", 4.0, 3.0));
-		itens.add(new Item("Item 7", 6.0, 5.0));
-		itens.add(new Item("Item 8", 8.0, 2.0));
+		List<Produto> itens = new ArrayList<Produto>();
+		itens.add(new Produto("Item 1", 5.0, 3.0));
+		itens.add(new Produto("Item 2", 4.0, 3.0));
+		itens.add(new Produto("Item 3", 7.0, 2.0));
+		itens.add(new Produto("Item 4", 8.0, 4.0));
+		itens.add(new Produto("Item 5", 4.0, 2.0));
+		itens.add(new Produto("Item 6", 4.0, 3.0));
+		itens.add(new Produto("Item 7", 6.0, 5.0));
+		itens.add(new Produto("Item 8", 8.0, 2.0));
 		
 		
 		List<Double> pesos = new ArrayList<Double>();
 		List<Double> beneficios = new ArrayList<Double>();
 		List<String> nomes = new ArrayList<String>();
 		
-		for (Item item : itens) {
-			pesos.add(item.getPeso());
-			beneficios.add(item.getBeneficio());
+		for (Produto item : itens) {
+			pesos.add(item.getTamanho());
+			beneficios.add(item.getPreco());
 			nomes.add(item.getNome());
 		}
 		
