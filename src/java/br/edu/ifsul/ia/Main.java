@@ -24,7 +24,7 @@ public class Main {
 		List<String> nomes = new ArrayList<String>();
 		
 		for (Produto item : itens) {
-			pesos.add(item.getTamanho());
+			pesos.add(item.getVolume());
 			beneficios.add(item.getPreco());
 			nomes.add(item.getNome());
 		}

@@ -3,8 +3,8 @@ MAS mochileiros_do_jason {
 	infrastructure: Centralised
 
 	agents:
-		mochileiro;
-		aventureiro;
+		camioneiro;
+		carregador;
 
 	aslSourcePath: "src/asl";
 }
