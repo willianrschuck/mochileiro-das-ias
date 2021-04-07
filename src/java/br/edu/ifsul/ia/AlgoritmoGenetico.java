@@ -15,15 +15,16 @@ public class AlgoritmoGenetico {
 		this.tamanhoPopulacao = tamanhoPopulacao;
 	}
 	
-	public void inicializaPopulacao(List<Double> volumes, List<Double> valores, Double limiteVolume) {
+	public void inicializaPopulacao(List<Double> volumes, List<Double> valores, List<String> destinatarios, List<String> destinatariosObrigatorios, Double limiteVolume) {
 		for (int i=0; i < tamanhoPopulacao; i++) {
-			this.populacao.add(new Individuo(volumes, valores, limiteVolume));
+			this.populacao.add(new Individuo(volumes, valores, destinatarios, destinatariosObrigatorios, limiteVolume));
 		}
 		this.melhorIndividuo = this.populacao.get(0);
 	}
 	
 	public void melhorIndividuo(Individuo individuo) {
 		if (individuo.getNotaAvaliacao() > this.melhorIndividuo.getNotaAvaliacao()) {
+			System.out.println("Trocou por a nova nota: " + individuo.getNotaAvaliacao());
 			this.melhorIndividuo = individuo;
 		}
 	}
@@ -56,9 +57,9 @@ public class AlgoritmoGenetico {
 	public void visualizarGeracao() {
 	}
 	
-	public List<String> resolver(Double taxaMutacao, int numeroGeracoes, List<Double> volumes, List<Double> valor, Double limiteVolume) {
+	public List<String> resolver(Double taxaMutacao, int numeroGeracoes, List<Double> volumes, List<Double> valor, List<String> destinatarios, List<String> destinatariosObrigatorios, Double limiteVolume) {
 		
-		this.inicializaPopulacao(volumes, valor, limiteVolume);
+		this.inicializaPopulacao(volumes, valor, destinatarios, destinatariosObrigatorios, limiteVolume);
 		
 		this.avaliarOrdenarEVisualizarPopulacao();
 		
