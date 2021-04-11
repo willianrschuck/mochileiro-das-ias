@@ -24,7 +24,6 @@ public class AlgoritmoGenetico {
 	
 	public void melhorIndividuo(Individuo individuo) {
 		if (individuo.getNotaAvaliacao() > this.melhorIndividuo.getNotaAvaliacao()) {
-			System.out.println("Trocou por a nova nota: " + individuo.getNotaAvaliacao());
 			this.melhorIndividuo = individuo;
 		}
 	}

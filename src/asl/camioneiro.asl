@@ -29,7 +29,8 @@ volumeMaximo(10).
    .print("Fala ai, meu bom!")
    .print("Preciso carregar esse caminhao com um volume de ate ", V ,", mas quero obter o maior lucro possivel.")
    .print("O lucro e maior se os produtos carregados tiverem mais valor.")
-   .print("Estes sao os produtos.")
+   .print("Leve em consideracao que tenho que levar estes produtos obrigatorios: ",R)
+   .print("Os demais produtos que tenho que escolher sao estes:")
    .print(X)
    .print("Pode me ajudar?")
    .send(carregador, tell, selecionarProdutos(X, R, V)).
